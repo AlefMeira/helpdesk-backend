@@ -2,7 +2,7 @@ package com.metodo.helpdesk.domain.enums;
 
 public enum Status {
 	
-	ABERTO(0, "ROLE_ABERTO"), ANDAMENTO(1, "ROLE_ANDAMENTO"), CONCLUIDO(2, "ROLE_CONCLUIDO")
+	ABERTO(0, "ROLE_ABERTO"), ANDAMENTO(1, "ROLE_ANDAMENTO"), CONCLUIDO(2, "ROLE_CONCLUIDO");
 
 	private Integer codigo;
 	private String descricao;

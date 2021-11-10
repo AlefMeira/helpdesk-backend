@@ -20,6 +20,7 @@ public enum Prioridade {
 		return descricao;
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	public static Prioridade toEnum(Integer cod) {
 		if(cod == null) {
 			return null;
