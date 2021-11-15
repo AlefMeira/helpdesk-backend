@@ -18,14 +18,13 @@ public class TecnicoDTO implements Serializable {
 	protected String cpf;
 	protected String email;
 	protected String senha;
-
 	protected Set<Integer> perfis = new HashSet<>();
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
 
 	public TecnicoDTO() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public TecnicoDTO(Tecnico obj) {

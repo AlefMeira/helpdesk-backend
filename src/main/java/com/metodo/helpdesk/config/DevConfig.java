@@ -23,9 +23,6 @@ public class DevConfig {
 		if(value.equals("create")) {
 			this.dbService.instanciaDB();
 		}
-		return false;
-		
-		
+		return false;	
 	}
-
 }

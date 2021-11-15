@@ -7,21 +7,17 @@ import org.springframework.stereotype.Service;
 
 import com.metodo.helpdesk.domain.Tecnico;
 import com.metodo.helpdesk.repositories.TecnicoRepository;
+import com.metodo.helpdesk.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class TecnicoService {
 
 	@Autowired
 	private TecnicoRepository tecnicoRepository;
-	
+
 	public Tecnico findById(Integer id) {
 		Optional<Tecnico> obj = tecnicoRepository.findById(id);
-		return obj.orElse(null);
-		
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id));
 	}
 
-				
-	
-	
-	
 }
