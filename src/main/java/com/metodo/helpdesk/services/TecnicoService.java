@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.metodo.helpdesk.domain.Tecnico;
+import com.metodo.helpdesk.domain.dtos.TecnicoDTO;
 import com.metodo.helpdesk.repositories.TecnicoRepository;
 import com.metodo.helpdesk.services.exceptions.ObjectNotFoundException;
 
@@ -24,6 +25,12 @@ public class TecnicoService {
 
 	public List<Tecnico> findAll() {
 		return tecnicoRepository.findAll();
+	}
+
+	public Tecnico create(TecnicoDTO objDTO) {
+		objDTO.setId(null);
+		Tecnico newObj = new Tecnico(objDTO);
+		return tecnicoRepository.save(newObj);
 	}
 
 }
