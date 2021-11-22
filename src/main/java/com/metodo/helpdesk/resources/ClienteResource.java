@@ -19,7 +19,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.metodo.helpdesk.domain.Cliente;
 import com.metodo.helpdesk.domain.dtos.ClienteDTO;
-import com.metodo.helpdesk.domain.dtos.TecnicoDTO;
 import com.metodo.helpdesk.services.ClienteService;
 
 @RestController
