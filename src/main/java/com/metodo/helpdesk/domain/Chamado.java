@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.metodo.helpdesk.domain.enums.Prioridade;
 import com.metodo.helpdesk.domain.enums.Status;
-
+			
 @Entity
 public class Chamado implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -43,7 +43,6 @@ public class Chamado implements Serializable {
 
 	public Chamado() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Chamado(Integer id, Prioridade prioridade, Status status, String titulo, String observacoes, Tecnico tecnico,

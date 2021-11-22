@@ -3,6 +3,8 @@ package com.metodo.helpdesk.domain.dtos;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.metodo.helpdesk.domain.Chamado;
 
@@ -13,12 +15,18 @@ public class ChamadoDTO implements Serializable {
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataAbertura = LocalDate.now();
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataFechamento = LocalDate.now();
+	private LocalDate dataFechamento;
+	@NotNull(message = "O campo PRIORIDADE é requerido")
 	private Integer prioridade;
+	@NotNull(message = "O campo STATUS é requerido")
 	private Integer status;
+	@NotNull(message = "O campo TITULO é requerido")
 	private String titulo;
+	@NotNull(message = "O campo OBSERVAÇÕES é requerido")
 	private String observacoes;
+	@NotNull(message = "O campo TECNICO é requerido")
 	private Integer tecnico;
+	@NotNull(message = "O campo CLIENTE é requerido")
 	private Integer cliente;
 	private String nomeTecnico;
 	private String nomeCliente;
@@ -28,7 +36,6 @@ public class ChamadoDTO implements Serializable {
 	}
 
 	public ChamadoDTO(Chamado obj) {
-		super();
 		this.id = obj.getId();
 		this.dataAbertura = obj.getDataAbertura();
 		this.dataFechamento = obj.getDataFechamento();
@@ -38,8 +45,8 @@ public class ChamadoDTO implements Serializable {
 		this.observacoes = obj.getObservacoes();
 		this.tecnico = obj.getTecnico().getId();
 		this.cliente = obj.getCliente().getId();
-		this.nomeTecnico = obj.getTecnico().getNome();
 		this.nomeCliente = obj.getCliente().getNome();
+		this.nomeTecnico = obj.getTecnico().getNome();
 	}
 
 	public Integer getId() {
@@ -130,8 +137,5 @@ public class ChamadoDTO implements Serializable {
 		this.nomeCliente = nomeCliente;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 }
+

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.metodo.helpdesk.domain.Cliente;
 import com.metodo.helpdesk.domain.Pessoa;
-import com.metodo.helpdesk.domain.Tecnico;
 import com.metodo.helpdesk.domain.dtos.ClienteDTO;
 import com.metodo.helpdesk.repositories.ClienteRepository;
 import com.metodo.helpdesk.repositories.PessoaRepository;

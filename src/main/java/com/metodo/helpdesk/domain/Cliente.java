@@ -9,7 +9,6 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.metodo.helpdesk.domain.dtos.ClienteDTO;
-import com.metodo.helpdesk.domain.dtos.TecnicoDTO;
 import com.metodo.helpdesk.domain.enums.Perfil;
 
 @Entity
@@ -27,7 +26,6 @@ public class Cliente extends Pessoa {
 
 	public Cliente(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Cliente(ClienteDTO obj) {

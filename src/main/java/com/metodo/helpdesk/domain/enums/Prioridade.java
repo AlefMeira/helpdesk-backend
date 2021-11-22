@@ -2,7 +2,7 @@ package com.metodo.helpdesk.domain.enums;
 
 public enum Prioridade {
 	
-	BAIXA(0, "ROLE_BAIXA"), MEDIA(1,"ROLE_MEDIA"), ALTA(2,"ROLE_ALTA");
+	BAIXA(0, "BAIXA"), MEDIA(1,"MEDIA"), ALTA(2,"ALTA");
 	
 	private Integer codigo;
 	private String descricao;
@@ -20,19 +20,18 @@ public enum Prioridade {
 		return descricao;
 	}
 	
-	@SuppressWarnings("unlikely-arg-type")
 	public static Prioridade toEnum(Integer cod) {
 		if(cod == null) {
 			return null;
 		}
 		
 		for(Prioridade x : Prioridade.values()) {
-			if(x.equals(x.getCodigo())) {
+			if(cod.equals(x.getCodigo())) {
 				return x;
 			}
 		}
 		
-		throw new IllegalArgumentException("Status Invalido");
+		throw new IllegalArgumentException("Prioridade Invalida");
 		
 	}
 	
