@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.metodo.helpdesk.domain.Cliente;
@@ -22,6 +23,9 @@ public class ClienteService {
 
 	@Autowired
 	private PessoaRepository pessoaRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 
 	public Cliente findById(Integer id) {
 		Optional<Cliente> obj = clienteRepository.findById(id);
@@ -34,11 +38,12 @@ public class ClienteService {
 
 	public Cliente create(ClienteDTO objDTO) {
 		objDTO.setId(null);
+		objDTO.setSenha(encoder.encode(objDTO.getSenha()));
 		validaPorEmailECpf(objDTO);
 		Cliente newObj = new Cliente(objDTO);
 		return clienteRepository.save(newObj);
 	}
-	
+
 	public Cliente update(Integer id, ClienteDTO objDTO) {
 		objDTO.setId(id);
 		Cliente oldObj = findById(id);
@@ -46,7 +51,7 @@ public class ClienteService {
 		oldObj = new Cliente(objDTO);
 		return clienteRepository.save(oldObj);
 	}
-	
+
 	public void delete(Integer id) {
 		Cliente obj = findById(id);
 
@@ -55,7 +60,7 @@ public class ClienteService {
 		}
 		clienteRepository.deleteById(id);
 	}
-	
+
 	private void validaPorEmailECpf(ClienteDTO objDTO) {
 		Optional<Pessoa> obj = pessoaRepository.findByCpf(objDTO.getCpf());
 		if (obj.isPresent() && obj.get().getId() != objDTO.getId()) {

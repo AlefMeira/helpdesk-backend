@@ -56,7 +56,6 @@ public abstract class Pessoa implements Serializable {
 	public Pessoa() {
 		super();
 		addPerfil(Perfil.CLIENTE);
-		// TODO Auto-generated constructor stub
 	}
 
 	public Pessoa(Integer id, String nome, String cpf, String email, String senha) {

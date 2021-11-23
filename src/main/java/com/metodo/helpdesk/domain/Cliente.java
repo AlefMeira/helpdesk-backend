@@ -27,7 +27,7 @@ public class Cliente extends Pessoa {
 	public Cliente(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
 	}
-	
+
 	public Cliente(ClienteDTO obj) {
 		super();
 		this.id = obj.getId();
